@@ -109,9 +109,11 @@ class ProdutoResource extends Resource
                     ->label('Compatibilidade com o Robô')
                     ->sortable(),
                 
-                    Tables\Columns\TextColumn::make('vida_util_hr')
-                    ->label('Vida útil (em horas)')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('vida_util_hr')
+                    ->label('Vida Útil (h)')
+                    ->badge()
+                    ->color(fn ($record) => $record->vida_util_hr <= 1000 ? 'danger' : 'success')
+                    ->sortable(),
 
 
                 Tables\Columns\TextColumn::make('estoque_minimo')

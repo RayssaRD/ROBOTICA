@@ -10,7 +10,7 @@ class Produto extends Model
     protected $primaryKey = 'id_produto';
 
     protected $fillable =[
-        'id_usuario','nome', 'codigo','fabricante_fornecedor','preco','numero_serie', 'compatibilidade_robo','vida_util_hr','estoque_minimo',
+        'id_usuario','nome', 'codigo','fabricante_fornecedor','preco', 'localizacao','numero_serie', 'compatibilidade_robo','vida_util_hr','estoque_minimo',
     ];
 
     // Método booted: executa ações automáticas em eventos da Model

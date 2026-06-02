@@ -31,11 +31,6 @@ class UsuarioResource extends Resource
                     ->required()
                     ->maxLength(255),
 
-                Forms\Components\TextInput::make('cidade')
-                    ->label('Cidade')
-                    ->required()
-                    ->maxLength(255),
-
                 Forms\Components\TextInput::make('login')
                     ->label('Login')
                     ->required()
@@ -63,11 +58,6 @@ class UsuarioResource extends Resource
 
                 Tables\Columns\TextColumn::make('nome')
                     ->label('Nome')
-                    ->searchable()
-                    ->sortable(),
-
-                Tables\Columns\TextColumn::make('cidade')
-                    ->label('Cidade')
                     ->searchable()
                     ->sortable(),
 

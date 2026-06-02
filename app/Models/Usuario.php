@@ -10,7 +10,7 @@ class Usuario extends Model
     protected $primaryKey = 'id_usuario';
    // identifica os campos da tabela
     protected $fillable=[
-        'nome', 'login', 'tipo_usuario'
+        'nome',  'login', 'tipo_usuario'
     ];
 
     // relacionamento 1:N

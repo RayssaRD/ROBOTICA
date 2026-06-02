@@ -55,34 +55,18 @@ class EstoqueResource extends Resource
 
             Tables\Columns\TextColumn::make('quantidade_atual')
                 ->label('Quantidade Atual')
-                ->sortable(),
-
-            Tables\Columns\TextColumn::make('produto.estoque_minimo')
-                ->label('Estoque Mínimo')
-                ->sortable(),
-
-            Tables\Columns\TextColumn::make('status_estoque')
-                ->label('Status')
                 ->badge()
-                ->getStateUsing(function ($record) {
+                ->color(function ($record) {
                     if (!$record->produto) {
-                        return 'Produto não encontrado';
+                        return 'gray';
                     }
             
-                    if ($record->quantidade_atual <= $record->produto->estoque_minimo) {
-                        return 'Estoque Baixo';
-                    }
-            
-                    return 'Normal';
+                    return $record->quantidade_atual <= $record->produto->estoque_minimo
+                        ? 'danger'
+                        : 'success';
                 })
-                ->color(function ($state) {
-                    return match ($state) {
-                        'Estoque Baixo' => 'danger',
-                        'Normal' => 'success',
-                        default => 'gray',
-                    };
-                }),
-
+                ->sortable(),
+           
             Tables\Columns\TextColumn::make('updated_at')
                 ->label('Atualizado em')
                 ->dateTime('d/m/Y H:i')
